@@ -1,5 +1,7 @@
 package controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import dto.AdminDto;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -23,9 +25,14 @@ public class AdminSigninServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        try {
         ObjectMapper mapper = new ObjectMapper();
         BasicDataSource dataSource =  (BasicDataSource) getServletContext().getAttribute("dataSource");
+        AdminDto adminDto = mapper.readValue(req.getInputStream(),AdminDto.class);
+        model.signin(adminDto.getEmail(),adminDto.getPassword(),req, resp, dataSource);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 }
