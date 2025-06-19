@@ -1,4 +1,6 @@
 package controller;
 
-public class ComplaintServlet {
+import jakarta.servlet.http.HttpServlet;
+
+public class ComplaintServlet extends HttpServlet {
 }
