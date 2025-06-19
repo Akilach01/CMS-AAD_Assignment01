@@ -7,4 +7,11 @@ public class ComplainModel {
     public void getComplainsByEmail(String email, HttpServletResponse resp, HttpServletRequest req) {
 
     }
+
+    public  deleteComplain( ,  ,  ) {
+    }
+
+    public void deleteComplain(int id, HttpServletRequest req, HttpServletResponse resp) {
+
+    }
 }
