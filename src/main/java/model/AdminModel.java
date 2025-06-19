@@ -28,13 +28,13 @@ public class AdminModel {
 
         if (resultSet.next()){
            resp.setStatus(HttpServletResponse.SC_OK);
-           mapper.Writevalue(out, Map.of(
+           mapper.writeValue(out, Map.of(
                    "code", "200",
                    "status", "Login Success",
                    "message","logged in successfully"));
         }else {
            resp.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-           mapper.Writevalue(out, Map.of(
+           mapper.writeValue(out, Map.of(
                    "code", "401",
                    "status", "Login failed",
                    "message","logged in failed"));
@@ -45,5 +45,21 @@ public class AdminModel {
     }
 
     public void addNewAdmin(String name, String email, String password, BasicDataSource dataSource, HttpServletResponse resp, HttpServletRequest req) {
+        ObjectMapper mapper = new ObjectMapper();
+
+        try {
+        Connection connection = dataSource.getConnection();
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO users(name, email, password) VALUES (?,?,?)");
+
+        statement.setString(1, name);
+        statement.setString(2, email);
+        statement.setString(3, password);
+
+        int rows = statement.executeUpdate();
+        resp.setContentType("application/json");
+        mapper.writeValue(resp.getWriter(),Map.of("admin saved succesfully",rows));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

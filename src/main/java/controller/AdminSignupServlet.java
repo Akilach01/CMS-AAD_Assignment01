@@ -14,7 +14,7 @@ import org.apache.commons.dbcp2.BasicDataSource;
 
 import java.io.IOException;
 
-@WebServlet("")
+@WebServlet("/api/v1/admin")
 public class AdminSignupServlet extends HttpServlet {
 
     private AdminModel model;
