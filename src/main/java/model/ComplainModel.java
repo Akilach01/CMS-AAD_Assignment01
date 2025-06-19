@@ -1,0 +1,10 @@
+package model;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class ComplainModel {
+    public void getComplainsByEmail(String email, HttpServletResponse resp, HttpServletRequest req) {
+
+    }
+}

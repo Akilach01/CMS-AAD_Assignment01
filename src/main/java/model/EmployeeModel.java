@@ -12,6 +12,27 @@ import java.sql.ResultSet;
 import java.util.Map;
 
 public class EmployeeModel {
+
+    public void addNewEmployee( String id, String name, String email, int contact, HttpServletRequest request, HttpServletResponse response) {
+        BasicDataSource dataSource = (BasicDataSource) request.getServletContext().getAttribute("dataSource");
+        ObjectMapper mapper = new ObjectMapper();
+
+        try {
+            Connection connection = dataSource.getConnection();
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO employee(id, name, email, contact)VALUES (?,?,?,?)");
+            statement.setString(1, id);
+            statement.setString(2, name);
+            statement.setString(3, email);
+            statement.setInt(4, contact);
+            int rows = statement.executeUpdate();
+            response.setContentType("application/json");
+            mapper.writeValue(response.getWriter(),Map.of("employee added successfully", rows));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public void signin(String email, HttpServletRequest req, HttpServletResponse resp) {
         BasicDataSource dataSource = (BasicDataSource) req.getServletContext().getAttribute("dataSource");
         ObjectMapper mapper = new ObjectMapper();
