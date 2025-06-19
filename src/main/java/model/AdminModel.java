@@ -43,4 +43,7 @@ public class AdminModel {
             e.printStackTrace();
         }
     }
+
+    public void addNewAdmin(String name, String email, String password, BasicDataSource dataSource, HttpServletResponse resp, HttpServletRequest req) {
+    }
 }
