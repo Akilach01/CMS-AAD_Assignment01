@@ -14,4 +14,11 @@ public class ComplainModel {
     public void deleteComplain(int id, HttpServletRequest req, HttpServletResponse resp) {
 
     }
+
+    public void getAllComplains(HttpServletRequest req, HttpServletResponse resp) {
+        
+    }
+
+    public  addNewComplain( ,  ,  ,  ,  ) {
+    }
 }

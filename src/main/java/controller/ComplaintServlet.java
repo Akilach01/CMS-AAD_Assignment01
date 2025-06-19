@@ -32,6 +32,17 @@ public class ComplaintServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            ComplainDto dto = mapper.readValue(req.getInputStream(), ComplainDto.class);
+            model.addNewComplain(dto.getName(), dto.getEmail(), dto.getMessage(), req, resp);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
+    @Override
+    public void init() throws ServletException {
+        model = new ComplainModel();
     }
 }
