@@ -27,7 +27,7 @@
 
     <script>
         $('#empsigninBtn').on('click', () => {
-            const url = 'http://localhost:8080/backend/api/v1/emp/signin';
+            const url = 'http://localhost:8080/CMS-AAD_Assignment01/api/v1/emp/signin';
             const loginsEmp = {
                 email: $('#email').val(),
             };

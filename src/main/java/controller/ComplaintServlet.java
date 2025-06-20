@@ -3,6 +3,7 @@ package controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dto.ComplainDto;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -10,6 +11,7 @@ import model.ComplainModel;
 
 import java.io.IOException;
 
+@WebServlet("/api/v1/complains")
 public class ComplaintServlet extends HttpServlet {
 
     private ComplainModel model;

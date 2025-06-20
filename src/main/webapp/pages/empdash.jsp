@@ -62,7 +62,7 @@
             }
 
             $.ajax({
-                url: 'http://localhost:8080/backend/api/v1/getComplainByEmail',
+                url: 'http://localhost:8080/CMS-AAD_Assignment01/api/v1/getComplains',
                 method: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify({ email: email }),
@@ -96,7 +96,7 @@
         }
 
         $('#sendComplain').on('click', () => {
-            const apiURL = 'http://localhost:8080/backend/api/v1/complains'
+            const apiURL = 'http://localhost:8080/api/v1/complains'
             const complain = {
                 name: $('#name').val(),
                 email: $('#empEmail').text().trim(),

@@ -38,7 +38,7 @@
         crossorigin="anonymous"></script>
 
     <script>
-        const API_URL = 'http://localhost:8080/backend/api/v1/complains';
+        const API_URL = 'http://localhost:8080/CMS-AAD_Assignment01/api/v1/complains';
 
         $(document).ready(() => {
             getAllComplains();

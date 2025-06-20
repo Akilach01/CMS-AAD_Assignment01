@@ -43,7 +43,7 @@
     <script>
         $('#loginBtn').on('click', () => {
 
-            const API_URL = 'http://localhost:8080/backend/api/v1/admin/signin'
+            const API_URL = 'http://localhost:8080/CMS-AAD_Assignment01/api/v1/admin/signin'
             const loginData = {
                 email: $('#email').val(),
                 password: $('#password').val()

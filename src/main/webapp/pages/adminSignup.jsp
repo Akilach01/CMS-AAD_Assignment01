@@ -42,7 +42,7 @@
     <script>
         $('#userRegisterBtn').on('click', () => {
 
-            const API_URL = 'http://localhost:8080/backend/api/v1/admin'
+            const API_URL = 'http://localhost:8080/CMS-AAD_Assignment01/api/v1/admin';
 
             const admin = {
                 name: $('#name').val(),
